@@ -1,0 +1,9 @@
+C:\Users\T^3\Desktop\Thiết kế\SEP_framwork\SEP_framwork\bin\Debug\SEP_framwork.exe.config
+C:\Users\T^3\Desktop\Thiết kế\SEP_framwork\SEP_framwork\bin\Debug\SEP_framwork.exe
+C:\Users\T^3\Desktop\Thiết kế\SEP_framwork\SEP_framwork\bin\Debug\SEP_framwork.pdb
+C:\Users\T^3\Desktop\Thiết kế\SEP_framwork\SEP_framwork\obj\Debug\SEP_framwork.csprojResolveAssemblyReference.cache
+C:\Users\T^3\Desktop\Thiết kế\SEP_framwork\SEP_framwork\obj\Debug\SEP_framwork.Properties.Resources.resources
+C:\Users\T^3\Desktop\Thiết kế\SEP_framwork\SEP_framwork\obj\Debug\SEP_framwork.csproj.GenerateResource.Cache
+C:\Users\T^3\Desktop\Thiết kế\SEP_framwork\SEP_framwork\obj\Debug\SEP_framwork.exe
+C:\Users\T^3\Desktop\Thiết kế\SEP_framwork\SEP_framwork\obj\Debug\SEP_framwork.pdb
+C:\Users\T^3\Desktop\Thiết kế\SEP_framwork\SEP_framwork\obj\Debug\SEP_framwork.Form1.resources
