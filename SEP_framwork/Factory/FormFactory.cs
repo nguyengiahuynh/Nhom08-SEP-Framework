@@ -26,6 +26,12 @@ namespace SEP_framwork.Factory
                 case typeForm.READ:
                     res = new ReadForm(cnnString, tableName);
                     return res;
+                case typeForm.UPDATE:
+                    res = new UpdateForm(cnnString, tableName);
+                    return res;
+                case typeForm.DELETE:
+                    res = new DeleteForm(cnnString, tableName);
+                    return res;
                 default:
                     return res;
             }

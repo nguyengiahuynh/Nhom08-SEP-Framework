@@ -14,7 +14,6 @@ namespace SEP_framwork.Views.FormData
     {
         private Dictionary<string, Label> labelList = new Dictionary<string, Label>();
         private Dictionary<string, TextBox> textList = new Dictionary<string, TextBox>();
-        private string primaryKey;
         protected override void clickSave()
         {
             Dictionary<string, string> src = new Dictionary<string, string>();
@@ -22,7 +21,7 @@ namespace SEP_framwork.Views.FormData
             {
                 if(i.Value.Text == "")
                 {
-                    MessageBox.Show($"Trường dữ liệu {i.Key} còn trống!");
+                    MessageBox.Show($"Trường dữ liệu {i.Key} còn trống!", "Lỗi");
                     return;
                 }
                 src.Add(i.Key, i.Value.Text);
@@ -46,11 +45,6 @@ namespace SEP_framwork.Views.FormData
         public AddForm(string url, string nameTable) : base(url, nameTable)
         {
             form.FormBorderStyle = FormBorderStyle.FixedToolWindow;
-        }
-
-        public override void SetPrimaryKey(string key)
-        {
-            primaryKey = key;
         }
 
         protected override void InitializeForm()

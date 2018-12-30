@@ -48,16 +48,52 @@ namespace SEP_framwork.Controllers.HandleController
             return true;
         }
 
-        //protected bool UpdateData()
-        //{
-        //    sql = "insert ";
-        //    return true;
-        //}
-        //protected bool DeleteData()
-        //{
-        //    sql = "insert ";
-        //    return true;
-        //}
+        public bool UpdateData(Dictionary<string, string> data, string nameTable, string primaryKey)
+        {
+            string sql = $"update {nameTable} set ";
+            for (int i = 0; i < data.Count; i++)
+            {
+                if(data.ElementAt(i).Key != primaryKey)
+                {
+                    if (i < data.Count - 1)
+                    {
+                        sql += (data.ElementAt(i).Key + $" = '{data.ElementAt(i).Value}', ");
+                    }
+                    else
+                    {
+                        sql += (data.ElementAt(i).Key + $" = '{data.ElementAt(i).Value}'");
+                    }
+                }
+            }
+            sql += $" where {primaryKey} = {data[primaryKey]}";
+
+            try
+            {
+                hdl_data.executeData(sql);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return true;
+        }
+
+        public bool DeleteData(Dictionary<string, string> data, string nameTable, string primaryKey)
+        {
+            string sql = $"delete {nameTable} where {primaryKey} = {data[primaryKey]}";
+
+            try
+            {
+                hdl_data.executeData(sql);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return true;
+        }
 
         public HandleController(string url)
         {

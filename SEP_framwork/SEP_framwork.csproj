@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\HandleController\HandleController.cs" />
+    <Compile Include="Views\FormData\DeleteForm.cs" />
     <Compile Include="Factory\FormFactory.cs" />
     <Compile Include="Models\HandleModel\HandleData.cs" />
     <Compile Include="Views\Form1.cs">

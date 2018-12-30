@@ -43,5 +43,21 @@ namespace SEP_framwork
             readForm.SetupForm();
             readForm.ShowForm();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            BaseForm updateForm = formFactory.getForm(Factory.typeForm.UPDATE, cnnString, "Member");
+            updateForm.SetPrimaryKey("ID");
+            updateForm.SetupForm();
+            updateForm.ShowForm();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            BaseForm deleteForm = formFactory.getForm(Factory.typeForm.DELETE, cnnString, "Member");
+            deleteForm.SetPrimaryKey("ID");
+            deleteForm.SetupForm();
+            deleteForm.ShowForm();
+        }
     }
 }

@@ -13,6 +13,7 @@ namespace SEP_framwork.Views.FormData
     public class BaseForm
     {
         protected string nameTable;
+        protected string primaryKey;
         protected Button save;
         protected Button cancel;
         protected Form form;
@@ -53,10 +54,14 @@ namespace SEP_framwork.Views.FormData
             this.InitializeForm();
         }
 
+        public void SetPrimaryKey(string key)
+        {
+            primaryKey = key;
+        }
+
         protected virtual void InitializeForm() { }
         protected virtual void AddTitle() { }
-        protected virtual void clickSave() { }
-        public virtual void SetPrimaryKey(string key) { }
+        protected virtual void clickSave() { } 
         public virtual void ExceptColumns(string[] cols) { }
         public virtual void ChangeNameColumns(Dictionary<string, string> listName) { }
     }
