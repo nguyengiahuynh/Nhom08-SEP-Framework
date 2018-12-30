@@ -21,11 +21,33 @@ namespace SEP_framwork.Controllers.HandleController
             return result;
         }
 
-        /*protected bool AddData()
+        public bool AddData(Dictionary<string, string> data, string nameTable)
         {
-            sql = "insert ";
+            string sql = $"insert into {nameTable} values(";
+            for (int i = 0; i < data.Count; i++)
+            {
+                if(i < data.Count - 1)
+                {
+                    sql += ("N'" + data.ElementAt(i).Value + "', ");
+                }
+                else
+                {
+                    sql += ("N'" + data.ElementAt(i).Value + "')");
+                }
+            }
+            
+            try
+            {
+                hdl_data.executeData(sql);
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+
             return true;
-        }*/
+        }
+
         //protected bool UpdateData()
         //{
         //    sql = "insert ";
@@ -36,7 +58,7 @@ namespace SEP_framwork.Controllers.HandleController
         //    sql = "insert ";
         //    return true;
         //}
-        
+
         public HandleController(string url)
         {
             this.hdl_data = new HandleData(url);

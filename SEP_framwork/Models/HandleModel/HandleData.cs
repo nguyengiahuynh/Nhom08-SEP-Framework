@@ -43,9 +43,18 @@ namespace SEP_framwork.Models.HandleModel
         { 
             SqlCommand sql_query = new SqlCommand(sql, this.connect);
             this.connect.Open();
-            int result = sql_query.ExecuteNonQuery();
-            this.connect.Close();
+            int result = 1;
+            try
+            {
+                result = sql_query.ExecuteNonQuery();
+            }
+            catch(Exception ex)
+            {
+                this.connect.Close();
+                throw ex;
+            }
 
+            this.connect.Close();
             return result;
         }
 
