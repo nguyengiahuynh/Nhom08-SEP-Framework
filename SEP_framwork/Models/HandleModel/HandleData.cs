@@ -13,19 +13,28 @@ namespace SEP_framwork.Models.HandleModel
     {
         protected string _urlDB;
         protected SqlConnection connect;
+
+        public HandleData(string url)
+        {
+            this.connect = new SqlConnection(url);
+            this._urlDB = url;
+        }
+
         public DataTable getData(string sql)
         {
+            this.connect.Open();
             try
             {
                 SqlDataAdapter adapt = new SqlDataAdapter(sql, this.connect);
 
                 DataTable table_data = new DataTable();
                 adapt.Fill(table_data);
-
+                this.connect.Close();
                 return table_data;
             }
             catch (Exception ex)
             {
+                this.connect.Close();
                 throw ex;
             }
         }
@@ -34,9 +43,18 @@ namespace SEP_framwork.Models.HandleModel
         { 
             SqlCommand sql_query = new SqlCommand(sql, this.connect);
             this.connect.Open();
-            int result = sql_query.ExecuteNonQuery();
-            this.connect.Close();
+            int result = 1;
+            try
+            {
+                result = sql_query.ExecuteNonQuery();
+            }
+            catch(Exception ex)
+            {
+                this.connect.Close();
+                throw ex;
+            }
 
+            this.connect.Close();
             return result;
         }
 
@@ -58,14 +76,7 @@ namespace SEP_framwork.Models.HandleModel
                 return false;
             }
         }
-
-        public HandleData(string url)
-        {
-            this.connect = new SqlConnection(url);
-            this._urlDB = url;
-        }
     }
-
 }
 
 

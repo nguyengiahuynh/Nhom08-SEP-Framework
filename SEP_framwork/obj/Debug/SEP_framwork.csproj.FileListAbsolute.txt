@@ -7,3 +7,12 @@ C:\Users\T^3\Desktop\Thiết kế\SEP_framwork\SEP_framwork\obj\Debug\SEP_framwo
 C:\Users\T^3\Desktop\Thiết kế\SEP_framwork\SEP_framwork\obj\Debug\SEP_framwork.exe
 C:\Users\T^3\Desktop\Thiết kế\SEP_framwork\SEP_framwork\obj\Debug\SEP_framwork.pdb
 C:\Users\T^3\Desktop\Thiết kế\SEP_framwork\SEP_framwork\obj\Debug\SEP_framwork.Form1.resources
+E:\Git\Nhom08-SEP-Framework\SEP_framwork\bin\Debug\SEP_framwork.exe.config
+E:\Git\Nhom08-SEP-Framework\SEP_framwork\obj\Debug\SEP_framwork.exe
+E:\Git\Nhom08-SEP-Framework\SEP_framwork\obj\Debug\SEP_framwork.pdb
+E:\Git\Nhom08-SEP-Framework\SEP_framwork\bin\Debug\SEP_framwork.exe
+E:\Git\Nhom08-SEP-Framework\SEP_framwork\bin\Debug\SEP_framwork.pdb
+E:\Git\Nhom08-SEP-Framework\SEP_framwork\obj\Debug\SEP_framwork.csprojResolveAssemblyReference.cache
+E:\Git\Nhom08-SEP-Framework\SEP_framwork\obj\Debug\SEP_framwork.Properties.Resources.resources
+E:\Git\Nhom08-SEP-Framework\SEP_framwork\obj\Debug\SEP_framwork.Form1.resources
+E:\Git\Nhom08-SEP-Framework\SEP_framwork\obj\Debug\SEP_framwork.csproj.GenerateResource.Cache

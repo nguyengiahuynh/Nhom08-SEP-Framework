@@ -48,6 +48,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\HandleController\HandleController.cs" />
+    <Compile Include="Views\FormData\DeleteForm.cs" />
+    <Compile Include="Factory\FormFactory.cs" />
     <Compile Include="Models\HandleModel\HandleData.cs" />
     <Compile Include="Views\Form1.cs">
       <SubType>Form</SubType>
@@ -59,6 +61,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\FormData\AddForm.cs" />
     <Compile Include="Views\FormData\BaseForm.cs" />
+    <Compile Include="Views\FormData\ReadForm.cs" />
     <Compile Include="Views\FormData\UpdateForm.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -81,6 +84,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Views\ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

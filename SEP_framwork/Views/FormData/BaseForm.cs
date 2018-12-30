@@ -12,56 +12,57 @@ namespace SEP_framwork.Views.FormData
 {
     public class BaseForm
     {
-        protected List<Label> label;
-        protected List<TextBox> text;
+        protected string nameTable;
+        protected string primaryKey;
         protected Button save;
         protected Button cancel;
         protected Form form;
         protected HandleController controllerData;
-        protected virtual void clickSave() { }
-        public BaseForm(string url, string nameTable)
+
+        public BaseForm(string cnnString, string nameTable)
         {
             this.form = new Form();
+            form.Text = "SIMPLE ENTERPRISE FRAMWORK";
+            this.nameTable = nameTable;
+            this.controllerData = new HandleController(cnnString);
 
-            this.controllerData = new HandleController(url);
-            this.label = new List<Label>();
-            this.text = new List<TextBox>();
-            int y = 0;
-            foreach (DataColumn item in controllerData.ReadData(nameTable).Columns)
-            {
-                Label tmp = new Label();
-                TextBox txt = new TextBox();
-                txt.Name = item.ColumnName;
-                txt.Width = 100;
-                tmp.Text = item.ColumnName;
-                label.Add(tmp);
-                text.Add(txt);
-                tmp.Location = new Point(100, 20 + y * 30);
-                txt.Location = new Point(200, 20 + y * 30);
-                y++;
-                form.Controls.Add(tmp);
-                form.Controls.Add(txt);
-            }
-            form.Width = 500;
-            form.Height = label[label.Count - 1].Location.Y + label[label.Count - 1].Height + 50;
-            
             this.save = new Button();
-            this.save.Click += Save_Click;
             this.cancel = new Button();
-            this.cancel.Text = "Cancel";
-            this.save.Text = "OK";
-            this.save.Location = new Point(100, form.Height - 30);
-            this.cancel.Location = new Point(200, form.Height - 30);
-            form.Controls.Add(this.save);
-            form.Controls.Add(this.cancel);
-            form.Height = save.Location.Y + save.Height + 50;
-            //form.Controls.Add(cancel);
-            this.form.Show();
+
+            this.save.Click += Save_Click;
+            this.cancel.Click += Cancel_Click;
         }
-        
+
+        private void Cancel_Click(object sender, EventArgs e)
+        {
+            this.form.Close();
+        }
+
         private void Save_Click(object sender, EventArgs e)
         {
             this.clickSave();
         }
+
+        public void ShowForm()
+        {
+            this.AddTitle();
+            this.form.Show();
+        }
+
+        public void SetupForm()
+        {
+            this.InitializeForm();
+        }
+
+        public void SetPrimaryKey(string key)
+        {
+            primaryKey = key;
+        }
+
+        protected virtual void InitializeForm() { }
+        protected virtual void AddTitle() { }
+        protected virtual void clickSave() { } 
+        public virtual void ExceptColumns(string[] cols) { }
+        public virtual void ChangeNameColumns(Dictionary<string, string> listName) { }
     }
 }
