@@ -21,7 +21,7 @@ namespace SEP_framwork.Views.FormData
             {
                 if(i.Value.Text == "")
                 {
-                    MessageBox.Show($"Trường dữ liệu {i.Key} còn trống!", "Lỗi");
+                    MessageBox.Show("Trường dữ liệu " + i.Key + " còn trống!", "Lỗi");
                     return;
                 }
                 src.Add(i.Key, i.Value.Text);

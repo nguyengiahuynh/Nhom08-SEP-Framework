@@ -23,7 +23,7 @@ namespace SEP_framwork.Controllers.HandleController
 
         public bool AddData(Dictionary<string, string> data, string nameTable)
         {
-            string sql = $"insert into {nameTable} values(";
+            string sql = "insert into " + nameTable + " values(";
             for (int i = 0; i < data.Count; i++)
             {
                 if(i < data.Count - 1)
@@ -50,22 +50,22 @@ namespace SEP_framwork.Controllers.HandleController
 
         public bool UpdateData(Dictionary<string, string> data, string nameTable, string primaryKey)
         {
-            string sql = $"update {nameTable} set ";
+            string sql = "update " + nameTable + " set ";
             for (int i = 0; i < data.Count; i++)
             {
                 if(data.ElementAt(i).Key != primaryKey)
                 {
                     if (i < data.Count - 1)
                     {
-                        sql += (data.ElementAt(i).Key + $" = '{data.ElementAt(i).Value}', ");
+                        sql += (data.ElementAt(i).Key + " = '" + data.ElementAt(i).Value + "', ");
                     }
                     else
                     {
-                        sql += (data.ElementAt(i).Key + $" = '{data.ElementAt(i).Value}'");
+                        sql += (data.ElementAt(i).Key + " = ' " + data.ElementAt(i).Value + "'");
                     }
                 }
             }
-            sql += $" where {primaryKey} = {data[primaryKey]}";
+            sql += " where " + primaryKey + " = '" + data[primaryKey] + "'";
 
             try
             {
@@ -81,7 +81,7 @@ namespace SEP_framwork.Controllers.HandleController
 
         public bool DeleteData(Dictionary<string, string> data, string nameTable, string primaryKey)
         {
-            string sql = $"delete {nameTable} where {primaryKey} = {data[primaryKey]}";
+            string sql = "delete "+ nameTable + "where" + primaryKey + " = " + data[primaryKey];
 
             try
             {
