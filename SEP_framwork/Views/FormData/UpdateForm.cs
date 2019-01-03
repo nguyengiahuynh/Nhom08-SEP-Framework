@@ -11,16 +11,14 @@ namespace SEP_framwork.Views.FormData
 {
     class UpdateForm : BaseForm
     {
-        private DataTable dt;
-        private DataGridView gridView = new DataGridView();
-        private Dictionary<string, string> listNameTable = new Dictionary<string, string>();
-        private string[] exceptCols;
-
         public UpdateForm(string cnnString, string nameTable)
             : base(cnnString, nameTable)
         {
         }
 
+        private DataTable dt;
+        private Dictionary<string, string> listNameTable = new Dictionary<string, string>();
+        private string[] exceptCols;
         private Dictionary<string, Label> labelList = new Dictionary<string, Label>();
         private Dictionary<string, TextBox> textList = new Dictionary<string, TextBox>();
         protected override void clickSave()
@@ -56,23 +54,30 @@ namespace SEP_framwork.Views.FormData
 
         protected override void InitializeForm()
         {
+            if (!controllerData.ReadData(nameTable).Columns.Contains("isDelete"))
+            {
+                controllerData.InitData(nameTable);
+            }
             int y = 0;
             foreach (DataColumn item in controllerData.ReadData(nameTable).Columns)
             {
-                Label tmp = new Label();
-                TextBox txt = new TextBox();
-                txt.Name = item.ColumnName;
-                txt.Width = 100;
-                tmp.Text = item.ColumnName;
-                labelList.Add(item.ColumnName, tmp);
-                textList.Add(item.ColumnName, txt);
-                if (tmp.Text == primaryKey)
-                    txt.Enabled = false;
-                tmp.Location = new Point(400, 60 + y * 30);
-                txt.Location = new Point(500, 60 + y * 30);
-                y++;
-                form.Controls.Add(tmp);
-                form.Controls.Add(txt);
+                if (item.ColumnName != "isDelete")
+                {
+                    Label tmp = new Label();
+                    TextBox txt = new TextBox();
+                    txt.Name = item.ColumnName;
+                    txt.Width = 100;
+                    tmp.Text = item.ColumnName;
+                    labelList.Add(item.ColumnName, tmp);
+                    textList.Add(item.ColumnName, txt);
+                    if (tmp.Text == primaryKey)
+                        txt.Enabled = false;
+                    tmp.Location = new Point(400, 60 + y * 30);
+                    txt.Location = new Point(500, 60 + y * 30);
+                    y++;
+                    form.Controls.Add(tmp);
+                    form.Controls.Add(txt);
+                }
             }
 
             this.InitDataGridView();
@@ -80,7 +85,7 @@ namespace SEP_framwork.Views.FormData
             form.Width = 1000;
             form.Height = gridView.Location.Y + gridView.Height + 50;
 
-            this.save.Text = "OK";
+            this.save.Text = "Update";
             this.save.Location = new Point(400, form.Height - 20);
 
             this.cancel.Text = "Cancel";
@@ -164,6 +169,16 @@ namespace SEP_framwork.Views.FormData
             title.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
             title.Location = new Point(form.Width / 2 - title.Width / 2 - 20, 10);
             form.Controls.Add(title);
+        }
+
+        public override void ChangeNameColumns(Dictionary<string, string> listName)
+        {
+            listNameTable = listName;
+        }
+
+        public override void ExceptColumns(string[] cols)
+        {
+            exceptCols = cols;
         }
     }
 }

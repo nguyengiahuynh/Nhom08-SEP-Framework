@@ -12,6 +12,7 @@ namespace SEP_framwork.Views.FormData
 {
     public class BaseForm
     {
+        protected DataGridView gridView = new DataGridView();
         protected string nameTable;
         protected string primaryKey;
         protected Button save;

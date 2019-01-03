@@ -7,57 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using SEP_framwork.Controllers.HandleController;
-using SEP_framwork.Views.FormData;
-using SEP_framwork.Factory;
 
-namespace SEP_framwork
+namespace SEP_framwork.Views
 {
     public partial class Form1 : Form
     {
-        FormFactory formFactory = new FormFactory();
-        string cnnString = @"Data Source=DESKTOP-GN3V8MM\SQLEXPRESS;Initial Catalog=QuanLyKhachSan;Integrated Security=True";
         public Form1()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            BaseForm addForm = formFactory.getForm(Factory.typeForm.ADD, cnnString, "Phong");
-            addForm.SetPrimaryKey("maPhong");
-            addForm.SetupForm();
-            addForm.ShowForm();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            BaseForm readForm = formFactory.getForm(Factory.typeForm.READ, cnnString, "Phong");
-            readForm.ExceptColumns(new string[] {});
-            readForm.ChangeNameColumns(new Dictionary<string, string>() {
-                { "Username", "Tên tài khoản" },
-                { "Password", "Mật khẩu" },
-                { "HoTen", "Họ và Tên" },
-                { "GioiTinh", "Giới tính" }
-            });
-            readForm.SetupForm();
-            readForm.ShowForm();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            BaseForm updateForm = formFactory.getForm(Factory.typeForm.UPDATE, cnnString, "Phong");
-            updateForm.SetPrimaryKey("maPhong");
-            updateForm.SetupForm();
-            updateForm.ShowForm();
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            BaseForm deleteForm = formFactory.getForm(Factory.typeForm.DELETE, cnnString, "Phong");
-            deleteForm.SetPrimaryKey("ID");
-            deleteForm.SetupForm();
-            deleteForm.ShowForm();
         }
     }
 }
