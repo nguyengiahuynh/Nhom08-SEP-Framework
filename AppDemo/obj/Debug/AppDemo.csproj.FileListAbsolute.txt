@@ -1,0 +1,9 @@
+C:\Users\Admin\Desktop\Nhom08-SEP-Framework\AppDemo\bin\Debug\AppDemo.exe.config
+C:\Users\Admin\Desktop\Nhom08-SEP-Framework\AppDemo\bin\Debug\AppDemo.exe
+C:\Users\Admin\Desktop\Nhom08-SEP-Framework\AppDemo\bin\Debug\AppDemo.pdb
+C:\Users\Admin\Desktop\Nhom08-SEP-Framework\AppDemo\obj\Debug\AppDemo.csprojResolveAssemblyReference.cache
+C:\Users\Admin\Desktop\Nhom08-SEP-Framework\AppDemo\obj\Debug\AppDemo.Form1.resources
+C:\Users\Admin\Desktop\Nhom08-SEP-Framework\AppDemo\obj\Debug\AppDemo.Properties.Resources.resources
+C:\Users\Admin\Desktop\Nhom08-SEP-Framework\AppDemo\obj\Debug\AppDemo.csproj.GenerateResource.Cache
+C:\Users\Admin\Desktop\Nhom08-SEP-Framework\AppDemo\obj\Debug\AppDemo.exe
+C:\Users\Admin\Desktop\Nhom08-SEP-Framework\AppDemo\obj\Debug\AppDemo.pdb

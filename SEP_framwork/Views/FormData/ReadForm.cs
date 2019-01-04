@@ -23,6 +23,10 @@ namespace SEP_framwork.Views.FormData
 
         protected override void InitializeForm()
         {
+            if (!controllerData.ReadData(nameTable).Columns.Contains("isDelete"))
+            {
+                controllerData.InitData(nameTable);
+            }
             form.Width = 1000;
             this.InitDataGridView();
             this.save.Text = "Refresh";

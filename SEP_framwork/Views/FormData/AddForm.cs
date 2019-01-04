@@ -21,7 +21,7 @@ namespace SEP_framwork.Views.FormData
             {
                 if(i.Value.Text == "")
                 {
-                    MessageBox.Show($"Trường dữ liệu {i.Key} còn trống!", "Lỗi");
+                    MessageBox.Show("Trường dữ liệu " + i.Key + " còn trống!", "Lỗi");
                     return;
                 }
                 src.Add(i.Key, i.Value.Text);
@@ -49,10 +49,14 @@ namespace SEP_framwork.Views.FormData
 
         protected override void InitializeForm()
         {
+            if (!controllerData.ReadData(nameTable).Columns.Contains("isDelete"))
+            {
+                controllerData.InitData(nameTable);
+            }
             int y = 0;
             foreach (DataColumn item in controllerData.ReadData(nameTable).Columns)
             {
-                if(item.ColumnName != primaryKey)
+                if(item.ColumnName != primaryKey && item.ColumnName != "isDelete")
                 {
                     Label tmp = new Label();
                     TextBox txt = new TextBox();

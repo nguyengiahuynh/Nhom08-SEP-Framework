@@ -16,14 +16,14 @@ namespace SEP_framwork.Controllers.HandleController
 
         public DataTable ReadData(string nameTable)
         {
-            string sql = "select * from " + nameTable;
+            string sql = "select * from " + nameTable + " where isDelete <> 1";
             DataTable result = this.hdl_data.getData(sql);
             return result;
         }
 
         public bool AddData(Dictionary<string, string> data, string nameTable)
         {
-            string sql = $"insert into {nameTable} values(";
+            string sql = "insert into " + nameTable + " values(";
             for (int i = 0; i < data.Count; i++)
             {
                 if(i < data.Count - 1)
@@ -32,7 +32,7 @@ namespace SEP_framwork.Controllers.HandleController
                 }
                 else
                 {
-                    sql += ("N'" + data.ElementAt(i).Value + "')");
+                    sql += ("N'" + data.ElementAt(i).Value + "', 0)");
                 }
             }
             
@@ -50,22 +50,22 @@ namespace SEP_framwork.Controllers.HandleController
 
         public bool UpdateData(Dictionary<string, string> data, string nameTable, string primaryKey)
         {
-            string sql = $"update {nameTable} set ";
+            string sql = "update " + nameTable + " set ";
             for (int i = 0; i < data.Count; i++)
             {
                 if(data.ElementAt(i).Key != primaryKey)
                 {
                     if (i < data.Count - 1)
                     {
-                        sql += (data.ElementAt(i).Key + $" = '{data.ElementAt(i).Value}', ");
+                        sql += (data.ElementAt(i).Key + " = '" + data.ElementAt(i).Value + "', ");
                     }
                     else
                     {
-                        sql += (data.ElementAt(i).Key + $" = '{data.ElementAt(i).Value}'");
+                        sql += (data.ElementAt(i).Key + " = ' " + data.ElementAt(i).Value + "'");
                     }
                 }
             }
-            sql += $" where {primaryKey} = {data[primaryKey]}";
+            sql += " where " + primaryKey + " = " + data[primaryKey];
 
             try
             {
@@ -81,7 +81,22 @@ namespace SEP_framwork.Controllers.HandleController
 
         public bool DeleteData(Dictionary<string, string> data, string nameTable, string primaryKey)
         {
-            string sql = $"delete {nameTable} where {primaryKey} = {data[primaryKey]}";
+            string sql = "update " + nameTable + " set ";
+            for (int i = 0; i < data.Count; i++)
+            {
+                if (data.ElementAt(i).Key != primaryKey)
+                {
+                    if (i < data.Count - 1)
+                    {
+                        sql += (data.ElementAt(i).Key + " = '" + data.ElementAt(i).Value + "', ");
+                    }
+                    else
+                    {
+                        sql += (data.ElementAt(i).Key + " = ' " + data.ElementAt(i).Value + "', isDelete = 1");
+                    }
+                }
+            }
+            sql += " where " + primaryKey + " = " + data[primaryKey];
 
             try
             {
@@ -99,6 +114,22 @@ namespace SEP_framwork.Controllers.HandleController
         {
             this.hdl_data = new HandleData(url);
             this._urlDB = url;
+        }
+
+        public bool InitData(string nameTable)
+        {
+            string sql = "alter table " + nameTable + " add isDelete bit not null default 0";
+
+            try
+            {
+                hdl_data.executeData(sql);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return true;
         }
     }
 }
