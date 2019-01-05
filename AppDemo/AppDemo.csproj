@@ -47,7 +47,10 @@
     <Compile Include="Controllers\HandleController\AbstractHandleController.cs" />
     <Compile Include="Controllers\HandleController\HandleController.cs" />
     <Compile Include="Factory\FormFactory.cs" />
+    <Compile Include="Membership\Membership.cs" />
     <Compile Include="Models\HandleModel\AbstractHandleData.cs" />
+    <Compile Include="Utils\Crypto.cs" />
+    <Compile Include="Utils\Router.cs" />
     <Compile Include="Views\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
