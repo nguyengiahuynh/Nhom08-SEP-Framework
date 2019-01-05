@@ -5,30 +5,34 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
-using SEP_framwork.Models.HandleModel;
+using AppDemo.Models.HandleModel;
 
-namespace SEP_framwork.Controllers.HandleController
+namespace AppDemo.Controllers.HandleController
 {
-    public class HandleController
+    public class HandleController : AbstractHandleController
     {
-        private HandleData hdl_data;
-        private string _urlDB;
-
-        public DataTable ReadDataFirstTime(string nameTable)
+        public override DataTable ReadDataFirstTime(string nameTable)
         {
             string sql = "select * from " + nameTable;
             DataTable result = this.hdl_data.getData(sql);
             return result;
         }
 
-        public DataTable ReadData(string nameTable)
+        public override string GetPrimaryKey(string nameTable)
+        {
+            string sql = "SELECT u.COLUMN_NAME, c.CONSTRAINT_NAME FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS AS c INNER JOIN INFORMATION_SCHEMA.KEY_COLUMN_USAGE AS u ON c.CONSTRAINT_NAME = u.CONSTRAINT_NAME where u.TABLE_NAME = '" + nameTable + "' AND c.TABLE_NAME = '" + nameTable + "' and c.CONSTRAINT_TYPE = 'PRIMARY KEY'";
+            DataTable result = this.hdl_data.getData(sql);
+            return result.Rows[0].Field<string>(0);
+        }
+
+        public override DataTable ReadData(string nameTable)
         {
             string sql = "select * from " + nameTable + " where isDelete <> 1";
             DataTable result = this.hdl_data.getData(sql);
             return result;
         }
 
-        public bool AddData(Dictionary<string, string> data, string nameTable)
+        public override bool AddData(Dictionary<string, string> data, string nameTable)
         {
             string sql = "insert into " + nameTable + " values(";
             for (int i = 0; i < data.Count; i++)
@@ -55,7 +59,7 @@ namespace SEP_framwork.Controllers.HandleController
             return true;
         }
 
-        public bool UpdateData(Dictionary<string, string> data, string nameTable, string primaryKey)
+        public override bool UpdateData(Dictionary<string, string> data, string nameTable, string primaryKey)
         {
             string sql = "update " + nameTable + " set ";
             for (int i = 0; i < data.Count; i++)
@@ -86,7 +90,7 @@ namespace SEP_framwork.Controllers.HandleController
             return true;
         }
 
-        public bool DeleteData(Dictionary<string, string> data, string nameTable, string primaryKey)
+        public override bool DeleteData(Dictionary<string, string> data, string nameTable, string primaryKey)
         {
             string sql = "update " + nameTable + " set ";
             for (int i = 0; i < data.Count; i++)
@@ -123,7 +127,7 @@ namespace SEP_framwork.Controllers.HandleController
             this._urlDB = url;
         }
 
-        public bool InitData(string nameTable)
+        public override bool InitData(string nameTable)
         {
             string sql = "alter table " + nameTable + " add isDelete bit not null default 0";
 

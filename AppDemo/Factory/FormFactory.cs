@@ -1,11 +1,11 @@
-﻿using SEP_framwork.Views.FormData;
+﻿using AppDemo.Views.FormData;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SEP_framwork.Factory
+namespace AppDemo.Factory
 {
     public enum typeForm {
         ADD,
