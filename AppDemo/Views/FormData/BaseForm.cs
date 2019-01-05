@@ -19,14 +19,14 @@ namespace AppDemo.Views.FormData
         protected Button cancel;
         protected string SaveText = "Ok";
         protected string CancelText = "Cancel";
-        protected Form form;
+        public Form form;
         protected AbstractHandleController controllerData;
         protected Dictionary<string, string> listNameTable = new Dictionary<string, string>();
         protected string[] exceptCols;
         protected DataTable dt;
         protected Dictionary<string, Label> labelList = new Dictionary<string, Label>();
         protected Dictionary<string, TextBox> textList = new Dictionary<string, TextBox>();
-        protected string title = "Base Form";
+        public string title = "Base Form";
         protected bool hasLabelList = false;
 
         public BaseForm(string cnnString, string nameTable)
@@ -53,7 +53,7 @@ namespace AppDemo.Views.FormData
             this.clickSave();
         }
 
-        public void ShowForm()
+        public virtual void ShowForm()
         {
             this.SetupForm();
             this.AddTitle();
@@ -123,6 +123,13 @@ namespace AppDemo.Views.FormData
             gridView.ReadOnly = true;
             gridView.CellClick += Binding_Data;
             form.Controls.Add(gridView);
+            if (dt.Rows.Count > 0)
+            {
+                for (int i = 0, j = 0; i < textList.Count && j < gridView.ColumnCount; i++, j++)
+                {
+                    textList.ElementAt(i).Value.Text = dt.Rows[0].ItemArray[j].ToString();
+                }
+            }
         }
 
         private void Binding_Data(object sender, DataGridViewCellEventArgs e)
@@ -158,7 +165,7 @@ namespace AppDemo.Views.FormData
 
         public virtual void ChangeNameColumns(Dictionary<string, string> listName) { }
 
-        protected void SetSizeAndAddButton(int height, int width)
+        public virtual void SetSizeAndAddButton(int height, int width)
         {
             form.Width = width;
             form.Height = height;
@@ -173,5 +180,7 @@ namespace AppDemo.Views.FormData
             form.Controls.Add(this.cancel);
             form.Height = save.Location.Y + save.Height + 80;
         }
+
+        public virtual void InsertForm(BaseForm f) { }
     }
 }

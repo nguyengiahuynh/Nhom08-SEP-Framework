@@ -74,29 +74,6 @@ namespace AppDemo.Views.FormData
             }
 
             this.SetSizeAndAddButton(labelList.ElementAt(labelList.Count - 1).Value.Location.Y + labelList.ElementAt(labelList.Count - 1).Value.Height + 50, 500);
-            //form.Width = 500;
-            //form.Height = labelList.ElementAt(labelList.Count - 1).Value.Location.Y + labelList.ElementAt(labelList.Count - 1).Value.Height + 50;
-
-            //this.save.Text = "OK";
-            //this.save.Location = new Point(150, form.Height - 20);
-
-            //this.cancel.Text = "Cancel";
-            //this.cancel.Location = new Point(260, form.Height - 20);
-
-            //form.Controls.Add(this.save);
-            //form.Controls.Add(this.cancel);
-            //form.Height = save.Location.Y + save.Height + 80;
         }
-
-        //protected override void AddTitle()
-        //{
-        //    Label title = new Label();
-        //    title.Name = "Title Label";
-        //    title.Text = "Form Add Data";
-        //    title.AutoSize = true;
-        //    title.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
-        //    title.Location = new Point(form.Width / 2 - title.Width / 2 - 20, 10);
-        //    form.Controls.Add(title);
-        //}
     }
 }

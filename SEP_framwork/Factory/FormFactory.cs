@@ -11,11 +11,12 @@ namespace SEP_framwork.Factory
         ADD,
         DELETE,
         UPDATE,
-        READ
+        READ,
+        HASFORMS
     };
     public class FormFactory
     {
-        public BaseForm getForm(typeForm type, string cnnString, string tableName)
+        public BaseForm getForm(typeForm type, string cnnString, string tableName, BaseForm rootForm)
         {
             BaseForm res = null;
             switch (type)
@@ -31,6 +32,9 @@ namespace SEP_framwork.Factory
                     return res;
                 case typeForm.DELETE:
                     res = new DeleteForm(cnnString, tableName);
+                    return res;
+                case typeForm.HASFORMS:
+                    res = new FormHasForms(cnnString, tableName, rootForm);
                     return res;
                 default:
                     return res;

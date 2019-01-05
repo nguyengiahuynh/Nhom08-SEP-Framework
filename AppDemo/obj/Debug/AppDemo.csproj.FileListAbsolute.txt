@@ -21,7 +21,6 @@ D:\KHTN\deadline\MauThietKeOOP\SEP\AppDemo\bin\Debug\AppDemo.exe.config
 D:\KHTN\deadline\MauThietKeOOP\SEP\AppDemo\bin\Debug\AppDemo.exe
 D:\KHTN\deadline\MauThietKeOOP\SEP\AppDemo\bin\Debug\AppDemo.pdb
 D:\KHTN\deadline\MauThietKeOOP\SEP\AppDemo\obj\Debug\AppDemo.csprojAssemblyReference.cache
-D:\KHTN\deadline\MauThietKeOOP\SEP\AppDemo\obj\Debug\AppDemo.Form1.resources
 D:\KHTN\deadline\MauThietKeOOP\SEP\AppDemo\obj\Debug\AppDemo.Properties.Resources.resources
 D:\KHTN\deadline\MauThietKeOOP\SEP\AppDemo\obj\Debug\AppDemo.csproj.GenerateResource.cache
 D:\KHTN\deadline\MauThietKeOOP\SEP\AppDemo\obj\Debug\AppDemo.csproj.CoreCompileInputs.cache
@@ -40,3 +39,7 @@ C:\Users\T^3\Desktop\Nhom08-SEP-Framework.git\AppDemo\bin\Debug\Bunifu_UI_v1.5.3
 C:\Users\T^3\Desktop\Nhom08-SEP-Framework.git\AppDemo\obj\Debug\AppDemo.Views.SignIn.resources
 C:\Users\T^3\Desktop\Nhom08-SEP-Framework.git\AppDemo\obj\Debug\AppDemo.Views.SignUp.resources
 C:\Users\T^3\Desktop\Nhom08-SEP-Framework.git\AppDemo\obj\Debug\AppDemo.Views.Home.resources
+D:\KHTN\deadline\MauThietKeOOP\SEP\AppDemo\obj\Debug\AppDemo.Views.Home.resources
+D:\KHTN\deadline\MauThietKeOOP\SEP\AppDemo\obj\Debug\AppDemo.Views.SignIn.resources
+D:\KHTN\deadline\MauThietKeOOP\SEP\AppDemo\obj\Debug\AppDemo.Views.SignUp.resources
+D:\KHTN\deadline\MauThietKeOOP\SEP\AppDemo\obj\Debug\AppDemo.csproj.CopyComplete

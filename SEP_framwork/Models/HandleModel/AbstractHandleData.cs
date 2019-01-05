@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AppDemo.Models.HandleModel
+namespace SEP_framwork.Models.HandleModel
 {
     public abstract class AbstractHandleData
     {

@@ -14,7 +14,6 @@ namespace AppDemo.Models.HandleModel
         public HandleData(string url)
         {
             this.connect = new SqlConnection(url);
-            this._urlDB = url;
         }
 
         public override DataTable getData(string sql)

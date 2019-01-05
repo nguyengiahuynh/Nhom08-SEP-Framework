@@ -74,11 +74,11 @@ namespace AppDemo.Controllers.HandleController
                 {
                     if (i < data.Count - 1)
                     {
-                        sql += (data.ElementAt(i).Key + " = '" + data.ElementAt(i).Value + "', ");
+                        sql += (data.ElementAt(i).Key + " = N'" + data.ElementAt(i).Value + "', ");
                     }
                     else
                     {
-                        sql += (data.ElementAt(i).Key + " = ' " + data.ElementAt(i).Value + "'");
+                        sql += (data.ElementAt(i).Key + " = N'" + data.ElementAt(i).Value + "'");
                     }
                 }
             }
@@ -159,14 +159,14 @@ namespace AppDemo.Controllers.HandleController
             }
         }
 
-        public bool isExist(string username)
+        private bool isExist(string username)
         {
             var check = string.Format("select * from Session where username = '{0}'", username);
             var dt = hdl_data.getData(check);
             return dt.Rows.Count != 0;
         }
 
-        public bool Authen(string username, string password)
+        private bool Authen(string username, string password)
         {
             var authen = string.Format("select * from Session where username = '{0}'", username);
             DataTable data = hdl_data.getData(authen);
