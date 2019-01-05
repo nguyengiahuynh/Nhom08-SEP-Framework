@@ -15,7 +15,7 @@ namespace AppDemo.Views
     public partial class Home : Form
     {
         FormFactory formFactory = new FormFactory();
-        string cnnString = @"Data Source=DESKTOP-BSMAOJ9;Initial Catalog=KhachSan;Integrated Security=True";
+        string cnnString = @"Data Source=LAPTOP-L497P98H;Initial Catalog=QLTBDT;Integrated Security=True";
 
         public Home()
         {
@@ -49,25 +49,25 @@ namespace AppDemo.Views
 
         private void bunifuFlatButton1_Click(object sender, EventArgs e)
         {
-            BaseForm readForm = formFactory.getForm(AppDemo.Factory.typeForm.READ, cnnString, "KhachHang");
+            BaseForm readForm = formFactory.getForm(AppDemo.Factory.typeForm.READ, cnnString, "ThietBiDienTu", null);
             readForm.ShowForm();
         }
 
         private void bunifuFlatButton2_Click(object sender, EventArgs e)
         {
-            BaseForm addForm = formFactory.getForm(AppDemo.Factory.typeForm.ADD, cnnString, "KhachHang");
+            BaseForm addForm = formFactory.getForm(AppDemo.Factory.typeForm.ADD, cnnString, "ThietBiDienTu", null);
             addForm.ShowForm();
         }
 
         private void bunifuFlatButton3_Click(object sender, EventArgs e)
         {
-            BaseForm updateForm = formFactory.getForm(AppDemo.Factory.typeForm.UPDATE, cnnString, "KhachHang");
+            BaseForm updateForm = formFactory.getForm(AppDemo.Factory.typeForm.UPDATE, cnnString, "ThietBiDienTu", null);
             updateForm.ShowForm();
         }
 
         private void bunifuFlatButton4_Click(object sender, EventArgs e)
         {
-            BaseForm deleteForm = formFactory.getForm(AppDemo.Factory.typeForm.DELETE, cnnString, "KhachHang");
+            BaseForm deleteForm = formFactory.getForm(AppDemo.Factory.typeForm.DELETE, cnnString, "ThietBiDienTu", null);
             deleteForm.ShowForm();
         }
     }

@@ -17,7 +17,7 @@ namespace AppDemo.Views
         public SignIn()
         {
             InitializeComponent();
-            string url = @"Data Source=DESKTOP-BSMAOJ9;Initial Catalog=QuanLyKhachSan1;Integrated Security=True";
+            string url = @"Data Source=LAPTOP-L497P98H;Initial Catalog=QLTBDT;Integrated Security=True";
             menber = new Member(url);
         }
 
