@@ -14,7 +14,6 @@ E:\Git\Nhom08-SEP-Framework\SEP_framwork\bin\Debug\SEP_framwork.exe
 E:\Git\Nhom08-SEP-Framework\SEP_framwork\bin\Debug\SEP_framwork.pdb
 E:\Git\Nhom08-SEP-Framework\SEP_framwork\obj\Debug\SEP_framwork.csprojResolveAssemblyReference.cache
 E:\Git\Nhom08-SEP-Framework\SEP_framwork\obj\Debug\SEP_framwork.Properties.Resources.resources
-E:\Git\Nhom08-SEP-Framework\SEP_framwork\obj\Debug\SEP_framwork.Form1.resources
 E:\Git\Nhom08-SEP-Framework\SEP_framwork\obj\Debug\SEP_framwork.csproj.GenerateResource.Cache
 C:\Users\Admin\Desktop\Nhom08-SEP-Framework\SEP_framwork\bin\Debug\SEP_framwork.exe.config
 C:\Users\Admin\Desktop\Nhom08-SEP-Framework\SEP_framwork\obj\Debug\SEP_framwork.exe

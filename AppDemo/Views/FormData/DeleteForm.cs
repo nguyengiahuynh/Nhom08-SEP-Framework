@@ -1,4 +1,4 @@
-﻿using SEP_framwork.Views.FormData;
+﻿using AppDemo.Views.FormData;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace SEP_framwork
+namespace AppDemo
 {
     public class DeleteForm : BaseForm
     {
