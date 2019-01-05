@@ -17,7 +17,7 @@ namespace AppDemo
     public partial class Form1 : Form
     {
         FormFactory formFactory = new FormFactory();
-        string cnnString = @"Data Source=LAPTOP-L497P98H\SQLEXPRESS;Initial Catalog=DSSV;Integrated Security=True";
+        string cnnString = @"Data Source=LAPTOP-L497P98H;Initial Catalog=QLTBDT;Integrated Security=True";
 
         public Form1()
         {
@@ -27,7 +27,7 @@ namespace AppDemo
 
         private void Read_Click(object sender, EventArgs e)
         {
-            BaseForm readForm = formFactory.getForm(AppDemo.Factory.typeForm.READ, cnnString, "SinhVien");
+            BaseForm readForm = formFactory.getForm(AppDemo.Factory.typeForm.READ, cnnString, "ThietBiDienTu", null);
             //readForm.ExceptColumns(new string[] { "isDelete" });
             //readForm.ChangeNameColumns(new Dictionary<string, string>() {
             //    { "Username", "Tên tài khoản" },
@@ -41,28 +41,31 @@ namespace AppDemo
 
         private void Add_Click(object sender, EventArgs e)
         {
-            BaseForm addForm = formFactory.getForm(AppDemo.Factory.typeForm.ADD, cnnString, "SinhVien");
-            //addForm.SetPrimaryKey("id");
-            //addForm.SetupForm();
+            BaseForm addForm = formFactory.getForm(AppDemo.Factory.typeForm.ADD, cnnString, "ThietBiDienTu", null);
             addForm.ShowForm();
         }
 
         private void Update_Click(object sender, EventArgs e)
         {
-            BaseForm updateForm = formFactory.getForm(AppDemo.Factory.typeForm.UPDATE, cnnString, "SinhVien");
-            //updateForm.ExceptColumns(new string[] { "isDelete" });
-            //updateForm.SetPrimaryKey("id");
-            //updateForm.SetupForm();
+            BaseForm updateForm = formFactory.getForm(AppDemo.Factory.typeForm.UPDATE, cnnString, "ThietBiDienTu", null);
             updateForm.ShowForm();
         }
 
         private void Delete_Click(object sender, EventArgs e)
         {
-            BaseForm deleteForm = formFactory.getForm(AppDemo.Factory.typeForm.DELETE, cnnString, "SinhVien");
-            //deleteForm.ExceptColumns(new string[] { "isDelete" });
-            //deleteForm.SetPrimaryKey("id");
-            //deleteForm.SetupForm();
+            BaseForm deleteForm = formFactory.getForm(AppDemo.Factory.typeForm.DELETE, cnnString, "ThietBiDienTu", null);
             deleteForm.ShowForm();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            BaseForm readForm = formFactory.getForm(AppDemo.Factory.typeForm.READ, cnnString, "ThietBiDienTu", null);
+            BaseForm deleteForm = formFactory.getForm(AppDemo.Factory.typeForm.DELETE, cnnString, "ThietBiDienTu", null);
+            BaseForm updateForm = formFactory.getForm(AppDemo.Factory.typeForm.UPDATE, cnnString, "ThietBiDienTu", null);
+            BaseForm formHasForms = formFactory.getForm(AppDemo.Factory.typeForm.HASFORMS, cnnString, "ThietBiDienTu", readForm);
+            formHasForms.InsertForm(deleteForm);
+            formHasForms.InsertForm(updateForm);
+            formHasForms.ShowForm();
         }
     }
 }

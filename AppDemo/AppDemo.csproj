@@ -63,6 +63,7 @@
     <Compile Include="Views\FormData\AddForm.cs" />
     <Compile Include="Views\FormData\BaseForm.cs" />
     <Compile Include="Views\FormData\DeleteForm.cs" />
+    <Compile Include="Views\FormData\FormHasForms.cs" />
     <Compile Include="Views\FormData\ReadForm.cs" />
     <Compile Include="Views\FormData\UpdateForm.cs" />
     <EmbeddedResource Include="Views\Form1.resx">

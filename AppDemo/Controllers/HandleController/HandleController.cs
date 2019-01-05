@@ -74,11 +74,11 @@ namespace AppDemo.Controllers.HandleController
                 {
                     if (i < data.Count - 1)
                     {
-                        sql += (data.ElementAt(i).Key + " = '" + data.ElementAt(i).Value + "', ");
+                        sql += (data.ElementAt(i).Key + " = N'" + data.ElementAt(i).Value + "', ");
                     }
                     else
                     {
-                        sql += (data.ElementAt(i).Key + " = ' " + data.ElementAt(i).Value + "'");
+                        sql += (data.ElementAt(i).Key + " = N'" + data.ElementAt(i).Value + "'");
                     }
                 }
             }
@@ -150,7 +150,7 @@ namespace AppDemo.Controllers.HandleController
             return dataTable.Rows.Count != 0;
         }
 
-        public void createSessionTable()
+        public override void createSessionTable()
         {
             if (!isExistSession())
             {
@@ -159,14 +159,14 @@ namespace AppDemo.Controllers.HandleController
             }
         }
 
-        public bool isExist(string username)
+        private bool isExist(string username)
         {
             var check = string.Format("select * from Session where username = '{0}'", username);
             var dt = hdl_data.getData(check);
             return dt.Rows.Count != 0;
         }
 
-        public bool Authen(string username, string password)
+        private bool Authen(string username, string password)
         {
             var authen = string.Format("select * from Session where username = '{0}'", username);
             DataTable data = hdl_data.getData(authen);
@@ -179,7 +179,7 @@ namespace AppDemo.Controllers.HandleController
             return false;
         }
 
-        public bool Login(string username, string password)
+        public override bool Login(string username, string password)
         {
             if (Authen(username, password))
             {
@@ -190,7 +190,7 @@ namespace AppDemo.Controllers.HandleController
             return false;
         }
 
-        public bool Register(string username, string password)
+        public override bool Register(string username, string password)
         {
             if (isExist(username)) return false;
             var insert = string.Format("insert into Session values('{0}','{1}','false')", username, Crypto.Encrypt(password));
@@ -199,7 +199,7 @@ namespace AppDemo.Controllers.HandleController
             return false;
         }
 
-        public bool Logout(string username)
+        public override bool Logout(string username)
         {
             var logout = string.Format("Update Session Set isLogin = 'false' where username ='{0}'", username);
             if (hdl_data.executeData(logout) != 0)

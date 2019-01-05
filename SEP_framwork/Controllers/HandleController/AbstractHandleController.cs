@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
-using AppDemo.Models.HandleModel;
+using SEP_framwork.Models.HandleModel;
 
-namespace AppDemo.Controllers.HandleController
+namespace SEP_framwork.Controllers.HandleController
 {
     public abstract class AbstractHandleController
     {
