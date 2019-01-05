@@ -17,7 +17,7 @@ namespace AppDemo
     public partial class Form1 : Form
     {
         FormFactory formFactory = new FormFactory();
-        string cnnString = @"Data Source=LAPTOP-L497P98H\SQLEXPRESS;Initial Catalog=DSSV;Integrated Security=True";
+        string cnnString = @"Data Source=DESKTOP-BSMAOJ9;Initial Catalog=QuanLyKhachSan1;Integrated Security=True";
 
         public Form1()
         {
@@ -27,7 +27,7 @@ namespace AppDemo
 
         private void Read_Click(object sender, EventArgs e)
         {
-            BaseForm readForm = formFactory.getForm(AppDemo.Factory.typeForm.READ, cnnString, "SinhVien");
+            BaseForm readForm = formFactory.getForm(AppDemo.Factory.typeForm.READ, cnnString, "LoaiPhong");
             //readForm.ExceptColumns(new string[] { "isDelete" });
             //readForm.ChangeNameColumns(new Dictionary<string, string>() {
             //    { "Username", "Tên tài khoản" },
@@ -41,7 +41,7 @@ namespace AppDemo
 
         private void Add_Click(object sender, EventArgs e)
         {
-            BaseForm addForm = formFactory.getForm(AppDemo.Factory.typeForm.ADD, cnnString, "SinhVien");
+            BaseForm addForm = formFactory.getForm(AppDemo.Factory.typeForm.ADD, cnnString, "LoaiPhong");
             //addForm.SetPrimaryKey("id");
             //addForm.SetupForm();
             addForm.ShowForm();
@@ -49,7 +49,7 @@ namespace AppDemo
 
         private void Update_Click(object sender, EventArgs e)
         {
-            BaseForm updateForm = formFactory.getForm(AppDemo.Factory.typeForm.UPDATE, cnnString, "SinhVien");
+            BaseForm updateForm = formFactory.getForm(AppDemo.Factory.typeForm.UPDATE, cnnString, "LoaiPhong");
             //updateForm.ExceptColumns(new string[] { "isDelete" });
             //updateForm.SetPrimaryKey("id");
             //updateForm.SetupForm();
@@ -58,7 +58,7 @@ namespace AppDemo
 
         private void Delete_Click(object sender, EventArgs e)
         {
-            BaseForm deleteForm = formFactory.getForm(AppDemo.Factory.typeForm.DELETE, cnnString, "SinhVien");
+            BaseForm deleteForm = formFactory.getForm(AppDemo.Factory.typeForm.DELETE, cnnString, "LoaiPhong");
             //deleteForm.ExceptColumns(new string[] { "isDelete" });
             //deleteForm.SetPrimaryKey("id");
             //deleteForm.SetupForm();

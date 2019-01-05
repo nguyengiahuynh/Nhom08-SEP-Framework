@@ -27,5 +27,13 @@ namespace AppDemo.Controllers.HandleController
         public abstract bool DeleteData(Dictionary<string, string> data, string nameTable, string primaryKey);
 
         public abstract bool InitData(string nameTable);
+        public abstract bool Login(string username, string password);
+
+
+        public abstract bool Register(string username, string password);
+
+        public abstract bool Logout(string username);
+        public abstract void createSessionTable();
+
     }
 }

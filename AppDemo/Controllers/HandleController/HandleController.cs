@@ -150,7 +150,7 @@ namespace AppDemo.Controllers.HandleController
             return dataTable.Rows.Count != 0;
         }
 
-        public void createSessionTable()
+        public override void createSessionTable()
         {
             if (!isExistSession())
             {
@@ -179,7 +179,7 @@ namespace AppDemo.Controllers.HandleController
             return false;
         }
 
-        public bool Login(string username, string password)
+        public override bool Login(string username, string password)
         {
             if (Authen(username, password))
             {
@@ -190,7 +190,7 @@ namespace AppDemo.Controllers.HandleController
             return false;
         }
 
-        public bool Register(string username, string password)
+        public override bool Register(string username, string password)
         {
             if (isExist(username)) return false;
             var insert = string.Format("insert into Session values('{0}','{1}','false')", username, Crypto.Encrypt(password));
@@ -199,7 +199,7 @@ namespace AppDemo.Controllers.HandleController
             return false;
         }
 
-        public bool Logout(string username)
+        public override bool Logout(string username)
         {
             var logout = string.Format("Update Session Set isLogin = 'false' where username ='{0}'", username);
             if (hdl_data.executeData(logout) != 0)
