@@ -8,23 +8,25 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SEP_framwork.Controllers.HandleController;
-using SEP_framwork.Views.FormData;
-using SEP_framwork.Factory;
+using AppDemo.Views.FormData;
+using AppDemo.Factory;
+using AppDemo.Membership;
 
 namespace AppDemo
 {
     public partial class Form1 : Form
     {
+        string cnnString = @"Data Source=ADMIN\SQLEXPRESS;Initial Catalog=MemberForum;Integrated Security=True";
         FormFactory formFactory = new FormFactory();
-        string cnnString = @"Data Source=DESKTOP-GN3V8MM\SQLEXPRESS;Initial Catalog=Test;Integrated Security=True";
         public Form1()
         {
             InitializeComponent();
+            Member membership = new Member(cnnString);  //Apply membership cho login, register, logout
         }
 
         private void Read_Click(object sender, EventArgs e)
         {
-            BaseForm readForm = formFactory.getForm(SEP_framwork.Factory.typeForm.READ, cnnString, "HocSinh");
+            BaseForm readForm = formFactory.getForm(Factory.typeForm.READ, cnnString, "Member");
             readForm.ExceptColumns(new string[] { "isDelete" });
             //readForm.ChangeNameColumns(new Dictionary<string, string>() {
             //    { "Username", "Tên tài khoản" },
@@ -38,7 +40,7 @@ namespace AppDemo
 
         private void Add_Click(object sender, EventArgs e)
         {
-            BaseForm addForm = formFactory.getForm(SEP_framwork.Factory.typeForm.ADD, cnnString, "HocSinh");
+            BaseForm addForm = formFactory.getForm(Factory.typeForm.ADD, cnnString, "Member");
             addForm.SetPrimaryKey("id");
             addForm.SetupForm();
             addForm.ShowForm();
@@ -46,7 +48,7 @@ namespace AppDemo
 
         private void Update_Click(object sender, EventArgs e)
         {
-            BaseForm updateForm = formFactory.getForm(SEP_framwork.Factory.typeForm.UPDATE, cnnString, "HocSinh");
+            BaseForm updateForm = formFactory.getForm(Factory.typeForm.UPDATE, cnnString, "Member");
             updateForm.ExceptColumns(new string[] { "isDelete" });
             updateForm.SetPrimaryKey("id");
             updateForm.SetupForm();
@@ -55,7 +57,7 @@ namespace AppDemo
 
         private void Delete_Click(object sender, EventArgs e)
         {
-            BaseForm deleteForm = formFactory.getForm(SEP_framwork.Factory.typeForm.DELETE, cnnString, "HocSinh");
+            BaseForm deleteForm = formFactory.getForm(Factory.typeForm.DELETE, cnnString, "Member");
             deleteForm.ExceptColumns(new string[] { "isDelete" });
             deleteForm.SetPrimaryKey("id");
             deleteForm.SetupForm();

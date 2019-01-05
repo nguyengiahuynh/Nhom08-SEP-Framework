@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SEP_framwork.Views.FormData
+namespace AppDemo.Views.FormData
 {
     public class BaseForm
     {

@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SEP_framwork.Views.FormData;
+using AppDemo.Views.FormData;
 using System.Windows.Forms;
 using System.Data;
 using System.Drawing;
 
-namespace SEP_framwork.Views.FormData
+namespace AppDemo.Views.FormData
 {
     public class AddForm: BaseForm
     {

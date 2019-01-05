@@ -46,6 +46,9 @@
   <ItemGroup>
     <Compile Include="Controllers\HandleController\HandleController.cs" />
     <Compile Include="Factory\FormFactory.cs" />
+    <Compile Include="Membership\Membership.cs" />
+    <Compile Include="Utils\Crypto.cs" />
+    <Compile Include="Utils\Router.cs" />
     <Compile Include="Views\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,7 +84,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Views\ClassDiagram1.cd" />
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

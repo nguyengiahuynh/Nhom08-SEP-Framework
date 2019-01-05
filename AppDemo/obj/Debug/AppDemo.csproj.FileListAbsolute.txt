@@ -7,3 +7,12 @@ C:\Users\Admin\Desktop\Nhom08-SEP-Framework\AppDemo\obj\Debug\AppDemo.Properties
 C:\Users\Admin\Desktop\Nhom08-SEP-Framework\AppDemo\obj\Debug\AppDemo.csproj.GenerateResource.Cache
 C:\Users\Admin\Desktop\Nhom08-SEP-Framework\AppDemo\obj\Debug\AppDemo.exe
 C:\Users\Admin\Desktop\Nhom08-SEP-Framework\AppDemo\obj\Debug\AppDemo.pdb
+E:\Git\Nhom08-SEP-Framework\AppDemo\bin\Debug\AppDemo.exe.config
+E:\Git\Nhom08-SEP-Framework\AppDemo\obj\Debug\AppDemo.exe
+E:\Git\Nhom08-SEP-Framework\AppDemo\obj\Debug\AppDemo.pdb
+E:\Git\Nhom08-SEP-Framework\AppDemo\bin\Debug\AppDemo.exe
+E:\Git\Nhom08-SEP-Framework\AppDemo\bin\Debug\AppDemo.pdb
+E:\Git\Nhom08-SEP-Framework\AppDemo\obj\Debug\AppDemo.csprojResolveAssemblyReference.cache
+E:\Git\Nhom08-SEP-Framework\AppDemo\obj\Debug\AppDemo.Form1.resources
+E:\Git\Nhom08-SEP-Framework\AppDemo\obj\Debug\AppDemo.Properties.Resources.resources
+E:\Git\Nhom08-SEP-Framework\AppDemo\obj\Debug\AppDemo.csproj.GenerateResource.Cache
