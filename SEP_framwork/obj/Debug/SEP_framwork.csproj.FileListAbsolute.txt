@@ -23,3 +23,11 @@ C:\Users\Admin\Desktop\Nhom08-SEP-Framework\SEP_framwork\obj\Debug\SEP_framwork.
 C:\Users\Admin\Desktop\Nhom08-SEP-Framework\SEP_framwork\obj\Debug\SEP_framwork.csproj.GenerateResource.Cache
 C:\Users\Admin\Desktop\Nhom08-SEP-Framework\SEP_framwork\bin\Debug\SEP_framwork.exe
 C:\Users\Admin\Desktop\Nhom08-SEP-Framework\SEP_framwork\bin\Debug\SEP_framwork.pdb
+C:\Users\T^3\Desktop\Nhom08-SEP-Framework.git\SEP_framwork\bin\Debug\SEP_framwork.exe.config
+C:\Users\T^3\Desktop\Nhom08-SEP-Framework.git\SEP_framwork\bin\Debug\SEP_framwork.exe
+C:\Users\T^3\Desktop\Nhom08-SEP-Framework.git\SEP_framwork\bin\Debug\SEP_framwork.pdb
+C:\Users\T^3\Desktop\Nhom08-SEP-Framework.git\SEP_framwork\obj\Debug\SEP_framwork.csprojResolveAssemblyReference.cache
+C:\Users\T^3\Desktop\Nhom08-SEP-Framework.git\SEP_framwork\obj\Debug\SEP_framwork.Properties.Resources.resources
+C:\Users\T^3\Desktop\Nhom08-SEP-Framework.git\SEP_framwork\obj\Debug\SEP_framwork.csproj.GenerateResource.Cache
+C:\Users\T^3\Desktop\Nhom08-SEP-Framework.git\SEP_framwork\obj\Debug\SEP_framwork.exe
+C:\Users\T^3\Desktop\Nhom08-SEP-Framework.git\SEP_framwork\obj\Debug\SEP_framwork.pdb
