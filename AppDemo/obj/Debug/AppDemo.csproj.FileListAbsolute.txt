@@ -27,3 +27,16 @@ D:\KHTN\deadline\MauThietKeOOP\SEP\AppDemo\obj\Debug\AppDemo.csproj.GenerateReso
 D:\KHTN\deadline\MauThietKeOOP\SEP\AppDemo\obj\Debug\AppDemo.csproj.CoreCompileInputs.cache
 D:\KHTN\deadline\MauThietKeOOP\SEP\AppDemo\obj\Debug\AppDemo.exe
 D:\KHTN\deadline\MauThietKeOOP\SEP\AppDemo\obj\Debug\AppDemo.pdb
+C:\Users\T^3\Desktop\Nhom08-SEP-Framework.git\AppDemo\bin\Debug\AppDemo.exe.config
+C:\Users\T^3\Desktop\Nhom08-SEP-Framework.git\AppDemo\obj\Debug\AppDemo.exe
+C:\Users\T^3\Desktop\Nhom08-SEP-Framework.git\AppDemo\obj\Debug\AppDemo.pdb
+C:\Users\T^3\Desktop\Nhom08-SEP-Framework.git\AppDemo\bin\Debug\AppDemo.exe
+C:\Users\T^3\Desktop\Nhom08-SEP-Framework.git\AppDemo\bin\Debug\AppDemo.pdb
+C:\Users\T^3\Desktop\Nhom08-SEP-Framework.git\AppDemo\obj\Debug\AppDemo.csprojResolveAssemblyReference.cache
+C:\Users\T^3\Desktop\Nhom08-SEP-Framework.git\AppDemo\obj\Debug\AppDemo.Form1.resources
+C:\Users\T^3\Desktop\Nhom08-SEP-Framework.git\AppDemo\obj\Debug\AppDemo.Properties.Resources.resources
+C:\Users\T^3\Desktop\Nhom08-SEP-Framework.git\AppDemo\obj\Debug\AppDemo.csproj.GenerateResource.Cache
+C:\Users\T^3\Desktop\Nhom08-SEP-Framework.git\AppDemo\bin\Debug\Bunifu_UI_v1.5.3.dll
+C:\Users\T^3\Desktop\Nhom08-SEP-Framework.git\AppDemo\obj\Debug\AppDemo.Views.SignIn.resources
+C:\Users\T^3\Desktop\Nhom08-SEP-Framework.git\AppDemo\obj\Debug\AppDemo.Views.SignUp.resources
+C:\Users\T^3\Desktop\Nhom08-SEP-Framework.git\AppDemo\obj\Debug\AppDemo.Views.Home.resources
