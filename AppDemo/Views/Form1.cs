@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using AppDemo.Controllers.HandleController;
 using AppDemo.Views.FormData;
 using AppDemo.Factory;
+using AppDemo.Membership;
 
 namespace AppDemo
 {
@@ -17,9 +18,11 @@ namespace AppDemo
     {
         FormFactory formFactory = new FormFactory();
         string cnnString = @"Data Source=LAPTOP-L497P98H\SQLEXPRESS;Initial Catalog=DSSV;Integrated Security=True";
+
         public Form1()
         {
             InitializeComponent();
+            Member membership = new Member(cnnString);  //Apply membership cho login, register, logout
         }
 
         private void Read_Click(object sender, EventArgs e)
