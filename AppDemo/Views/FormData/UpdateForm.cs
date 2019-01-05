@@ -14,13 +14,10 @@ namespace AppDemo.Views.FormData
         public UpdateForm(string cnnString, string nameTable)
             : base(cnnString, nameTable)
         {
+            this.title = "Form Update Data";
+            this.SaveText = "Update";
         }
-
-        private DataTable dt;
-        private Dictionary<string, string> listNameTable = new Dictionary<string, string>();
-        private string[] exceptCols;
-        private Dictionary<string, Label> labelList = new Dictionary<string, Label>();
-        private Dictionary<string, TextBox> textList = new Dictionary<string, TextBox>();
+        
         protected override void clickSave()
         {
             Dictionary<string, string> src = new Dictionary<string, string>();
@@ -59,6 +56,7 @@ namespace AppDemo.Views.FormData
                 controllerData.InitData(nameTable);
             }
             int y = 0;
+            this.hasLabelList = true;
             foreach (DataColumn item in controllerData.ReadData(nameTable).Columns)
             {
                 if (item.ColumnName != "isDelete")
@@ -82,103 +80,104 @@ namespace AppDemo.Views.FormData
 
             this.InitDataGridView();
 
-            form.Width = 1000;
-            form.Height = gridView.Location.Y + gridView.Height + 50;
+            this.SetSizeAndAddButton(gridView.Location.Y + gridView.Height + 50, 1000);
+            //form.Width = 1000;
+            //form.Height = gridView.Location.Y + gridView.Height + 50;
 
-            this.save.Text = "Update";
-            this.save.Location = new Point(400, form.Height - 20);
+            //this.save.Text = "Update";
+            //this.save.Location = new Point(400, form.Height - 20);
 
-            this.cancel.Text = "Cancel";
-            this.cancel.Location = new Point(500, form.Height - 20);
+            //this.cancel.Text = "Cancel";
+            //this.cancel.Location = new Point(500, form.Height - 20);
 
-            form.Controls.Add(this.save);
-            form.Controls.Add(this.cancel);
-            form.Height = save.Location.Y + save.Height + 80;
+            //form.Controls.Add(this.save);
+            //form.Controls.Add(this.cancel);
+            //form.Height = save.Location.Y + save.Height + 80;
         }
 
-        private void InitDataGridView()
-        {
-            gridView.Columns.Clear();
-            gridView.Refresh();
-            dt = controllerData.ReadData(nameTable);
-            DataGridViewColumn[] columns = { };
-            List<string> tempCols = null;
-            if (exceptCols != null)
-            {
-                tempCols = exceptCols.ToList();
-            }
+        //private void InitDataGridView()
+        //{
+        //    gridView.Columns.Clear();
+        //    gridView.Refresh();
+        //    dt = controllerData.ReadData(nameTable);
+        //    DataGridViewColumn[] columns = { };
+        //    List<string> tempCols = null;
+        //    if (exceptCols != null)
+        //    {
+        //        tempCols = exceptCols.ToList();
+        //    }
 
-            foreach (DataColumn item in dt.Columns)
-            {
-                string res = "";
-                if (tempCols != null)
-                {
-                    res = tempCols.Find((str) =>
-                    {
-                        return str == item.ColumnName;
-                    });
-                }
+        //    foreach (DataColumn item in dt.Columns)
+        //    {
+        //        string res = "";
+        //        if (tempCols != null)
+        //        {
+        //            res = tempCols.Find((str) =>
+        //            {
+        //                return str == item.ColumnName;
+        //            });
+        //        }
 
-                if (String.IsNullOrEmpty(res))
-                {
-                    DataGridViewTextBoxColumn column = new DataGridViewTextBoxColumn();
-                    column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                    column.DataPropertyName = item.ColumnName;
-                    column.HeaderText = listNameTable.ContainsKey(item.ColumnName) ? listNameTable[item.ColumnName] : item.ColumnName;
-                    column.Name = item.ColumnName;
-                    column.ReadOnly = true;
-                    columns = columns.Concat(new DataGridViewColumn[] { column }).ToArray();
-                }
-            }
+        //        if (String.IsNullOrEmpty(res))
+        //        {
+        //            DataGridViewTextBoxColumn column = new DataGridViewTextBoxColumn();
+        //            column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        //            column.DataPropertyName = item.ColumnName;
+        //            column.HeaderText = listNameTable.ContainsKey(item.ColumnName) ? listNameTable[item.ColumnName] : item.ColumnName;
+        //            column.Name = item.ColumnName;
+        //            column.ReadOnly = true;
+        //            columns = columns.Concat(new DataGridViewColumn[] { column }).ToArray();
+        //        }
+        //    }
 
-            gridView.Columns.AddRange(columns);
-            if (tempCols != null)
-            {
-                foreach (string i in tempCols)
-                {
-                    dt.Columns.Remove(i);
-                }
-            }
+        //    gridView.Columns.AddRange(columns);
+        //    if (tempCols != null)
+        //    {
+        //        foreach (string i in tempCols)
+        //        {
+        //            dt.Columns.Remove(i);
+        //        }
+        //    }
 
-            gridView.DataSource = dt;
-            gridView.Location = new Point(0, labelList.ElementAt(labelList.Count - 1).Value.Location.Y + labelList.ElementAt(labelList.Count - 1).Value.Height + 50);
-            gridView.Size = new Size(1000, 200);
-            gridView.Name = "Data Table";
-            gridView.ReadOnly = true;
-            gridView.CellClick += Binding_Data;
-            form.Controls.Add(gridView);
-        }
+        //    gridView.DataSource = dt;
+        //    gridView.Location = new Point(0, labelList.ElementAt(labelList.Count - 1).Value.Location.Y + labelList.ElementAt(labelList.Count - 1).Value.Height + 50);
+        //    gridView.Size = new Size(1000, 200);
+        //    gridView.Name = "Data Table";
+        //    gridView.ReadOnly = true;
+        //    gridView.CellClick += Binding_Data;
+        //    form.Controls.Add(gridView);
+        //}
 
-        private void Binding_Data(object sender, DataGridViewCellEventArgs e)
-        {
-            if (gridView.Rows.Count > -1)
-            {
-                for(int i = 0, j = 0; i < textList.Count && j < gridView.ColumnCount; i++, j++)
-                {
-                    textList.ElementAt(i).Value.Text = gridView.Rows[e.RowIndex].Cells[j].Value.ToString();
-                }
-            }
-        }
+        //private void Binding_Data(object sender, DataGridViewCellEventArgs e)
+        //{
+        //    if (gridView.Rows.Count > -1)
+        //    {
+        //        for (int i = 0, j = 0; i < textList.Count && j < gridView.ColumnCount; i++, j++)
+        //        {
+        //            textList.ElementAt(i).Value.Text = gridView.Rows[e.RowIndex].Cells[j].Value.ToString();
+        //        }
+        //    }
+        //}
 
-        protected override void AddTitle()
-        {
-            Label title = new Label();
-            title.Name = "Title Label";
-            title.Text = "Form Update Data";
-            title.AutoSize = true;
-            title.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
-            title.Location = new Point(form.Width / 2 - title.Width / 2 - 20, 10);
-            form.Controls.Add(title);
-        }
+        //protected override void AddTitle()
+        //{
+        //    Label title = new Label();
+        //    title.Name = "Title Label";
+        //    title.Text = "Form Update Data";
+        //    title.AutoSize = true;
+        //    title.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
+        //    title.Location = new Point(form.Width / 2 - title.Width / 2 - 20, 10);
+        //    form.Controls.Add(title);
+        //}
 
         public override void ChangeNameColumns(Dictionary<string, string> listName)
         {
             listNameTable = listName;
         }
 
-        public override void ExceptColumns(string[] cols)
-        {
-            exceptCols = cols;
-        }
+        //public override void ExceptColumns(string[] cols)
+        //{
+        //    exceptCols = cols;
+        //}
     }
 }

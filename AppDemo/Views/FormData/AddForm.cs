@@ -12,8 +12,6 @@ namespace AppDemo.Views.FormData
 {
     public class AddForm: BaseForm
     {
-        private Dictionary<string, Label> labelList = new Dictionary<string, Label>();
-        private Dictionary<string, TextBox> textList = new Dictionary<string, TextBox>();
         protected override void clickSave()
         {
             Dictionary<string, string> src = new Dictionary<string, string>();
@@ -45,6 +43,7 @@ namespace AppDemo.Views.FormData
         public AddForm(string url, string nameTable) : base(url, nameTable)
         {
             form.FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            this.title = "Form Add Data";
         }
 
         protected override void InitializeForm()
@@ -54,6 +53,7 @@ namespace AppDemo.Views.FormData
                 controllerData.InitData(nameTable);
             }
             int y = 0;
+            this.hasLabelList = true;
             foreach (DataColumn item in controllerData.ReadData(nameTable).Columns)
             {
                 if(item.ColumnName != primaryKey && item.ColumnName != "isDelete")
@@ -73,29 +73,30 @@ namespace AppDemo.Views.FormData
                 }
             }
 
-            form.Width = 500;
-            form.Height = labelList.ElementAt(labelList.Count - 1).Value.Location.Y + labelList.ElementAt(labelList.Count - 1).Value.Height + 50;
+            this.SetSizeAndAddButton(labelList.ElementAt(labelList.Count - 1).Value.Location.Y + labelList.ElementAt(labelList.Count - 1).Value.Height + 50, 500);
+            //form.Width = 500;
+            //form.Height = labelList.ElementAt(labelList.Count - 1).Value.Location.Y + labelList.ElementAt(labelList.Count - 1).Value.Height + 50;
 
-            this.save.Text = "OK";
-            this.save.Location = new Point(150, form.Height - 20);
+            //this.save.Text = "OK";
+            //this.save.Location = new Point(150, form.Height - 20);
 
-            this.cancel.Text = "Cancel";
-            this.cancel.Location = new Point(260, form.Height - 20);
+            //this.cancel.Text = "Cancel";
+            //this.cancel.Location = new Point(260, form.Height - 20);
 
-            form.Controls.Add(this.save);
-            form.Controls.Add(this.cancel);
-            form.Height = save.Location.Y + save.Height + 80;
+            //form.Controls.Add(this.save);
+            //form.Controls.Add(this.cancel);
+            //form.Height = save.Location.Y + save.Height + 80;
         }
 
-        protected override void AddTitle()
-        {
-            Label title = new Label();
-            title.Name = "Title Label";
-            title.Text = "Form Add Data";
-            title.AutoSize = true;
-            title.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
-            title.Location = new Point(form.Width / 2 - title.Width / 2 - 20, 10);
-            form.Controls.Add(title);
-        }
+        //protected override void AddTitle()
+        //{
+        //    Label title = new Label();
+        //    title.Name = "Title Label";
+        //    title.Text = "Form Add Data";
+        //    title.AutoSize = true;
+        //    title.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
+        //    title.Location = new Point(form.Width / 2 - title.Width / 2 - 20, 10);
+        //    form.Controls.Add(title);
+        //}
     }
 }

@@ -5,7 +5,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SEP_framwork.Utils
+namespace AppDemo.Utils
 {
     class Crypto
     {

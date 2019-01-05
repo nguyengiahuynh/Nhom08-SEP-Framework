@@ -7,20 +7,17 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace SEP_framwork.Models.HandleModel
+namespace AppDemo.Models.HandleModel
 {
-    class HandleData
+    public class HandleData : AbstractHandleData
     {
-        protected string _urlDB;
-        protected SqlConnection connect;
-
         public HandleData(string url)
         {
             this.connect = new SqlConnection(url);
             this._urlDB = url;
         }
 
-        public DataTable getData(string sql)
+        public override DataTable getData(string sql)
         {
             this.connect.Open();
             try
@@ -38,8 +35,8 @@ namespace SEP_framwork.Models.HandleModel
                 throw ex;
             }
         }
-        
-        public int executeData(string sql)
+
+        public override int executeData(string sql)
         { 
             SqlCommand sql_query = new SqlCommand(sql, this.connect);
             this.connect.Open();
@@ -58,7 +55,7 @@ namespace SEP_framwork.Models.HandleModel
             return result;
         }
 
-        public bool isExist(string sql)
+        public override bool isExist(string sql)
         {
             SqlCommand lenh = new SqlCommand(sql, this.connect);
             this.connect.Open();

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SEP_framwork.Utils
+namespace AppDemo.Utils
 {
     class Router
     {
